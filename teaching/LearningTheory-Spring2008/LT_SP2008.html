@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html >
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+
+
+/* default css */
+
+table {
+  font-size: 1em;
+  line-height: inherit;
+}
+
+
+div, address, ol, ul, li, option, select { 
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p {
+  margin: 0px;
+}
+
+body {
+  margin: 6px;
+  padding: 0px;
+  font-family: Verdana, sans-serif;
+  font-size: 10pt;
+  background-color: #ffffff;
+}
+
+
+@media screen {
+  html.pageview {
+    background-color: #f3f3f3 !important;
+  }
+
+  
+    
+  body { 
+    min-height: 1100px; 
+  }
+  * html body { 
+    height: 1100px; 
+  }
+  .pageview body {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 2px solid #bbb;
+    border-bottom: 2px solid #bbb;
+    width: 648px !important;
+    margin: 15px auto 25px !important;
+    padding: 40px 50px; 
+  }
+  /* IE6 */
+  * html.pageview body {
+    overflow-x: auto;
+  }
+  
+  
+}
+
+
+h6 { font-size: 10pt }
+h5 { font-size: 11pt }
+h4 { font-size: 12pt }
+h3 { font-size: 13pt }
+h2 { font-size: 14pt }
+h1 { font-size: 16pt }
+
+blockquote {padding: 10px; border: 1px #DDD dashed }
+
+a img {border: 0}
+
+.pb {height: 1px}
+
+div.google_header, div.google_footer {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+/* Table of contents */
+.editor div.writely-toc {
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+}
+.writely-toc > ol {
+  padding-left: 1.5em;
+  font-weight: bold;
+}
+ol.writely-toc-subheading {
+  padding-left: 1em;
+  font-weight: normal;
+}
+.writely-toc-none {
+  list-style-type: none;
+}
+.writely-toc-decimal {
+  list-style-type: decimal;
+}
+.writely-toc-upper-alpha {
+  list-style-type: upper-alpha;
+}
+.writely-toc-lower-alpha {
+  list-style-type: lower-alpha;
+}
+.writely-toc-upper-roman {
+  list-style-type: upper-roman;
+}
+.writely-toc-lower-roman {
+  list-style-type: lower-roman;
+}
+.writely-toc-disc {
+  list-style-type: disc;
+}
+
+/* end default css */
+
+
+  /* default print css */
+  
+  @media print {
+    body { 
+      padding: 0; 
+      margin: 0; 
+    }
+
+    div.google_header, div.google_footer {
+      display: block;
+      min-height: 0;
+      border: none;
+    }
+
+    div.google_header {
+      flow: static(header);
+    }
+
+    /* used to insert page numbers */
+    div.google_header::before, div.google_footer::before {
+      position: absolute;
+      top: 0;
+    }
+
+    div.google_footer {
+      flow: static(footer);
+    }
+
+    /* always consider this element at the start of the doc */
+    div#google_footer {
+      flow: static(footer, start);
+    }
+
+    span.google_pagenumber {
+      content: counter(page);
+    }
+
+    span.google_pagecount {
+      content: counter(pages);
+    }
+
+    /* Table of contents */
+    #WritelyTableOfContents a::after {
+      content: leader('.') target-counter(attr(href), page);
+      font-style: normal;
+    }
+  }
+
+  @page {
+    @top {
+      content: flow(header);
+    }
+    @bottom {
+      content: flow(footer);
+    }
+  }
+  /* end default print css */
+ 
+
+/* custom css */
+
+
+/* end custom css */
+
+
+
+  /* ui edited css */
+  
+  body {
+    font-family: Verdana;
+    
+    font-size: 10.0pt;
+    line-height: normal;
+    background-color: #ffffff;
+  }
+  /* end ui edited css */
+
+
+
+/* editor CSS */
+.editor a:visited {color: #551A8B}
+.editor table.zeroBorder {border: 1px dotted gray}
+.editor table.zeroBorder td {border: 1px dotted gray}
+.editor table.zeroBorder th {border: 1px dotted gray}
+
+
+.editor div.google_header, .editor div.google_footer {
+  border: 2px #DDDDDD dashed;
+  position: static;
+  width: 100%;
+  min-height: 2em;
+}
+
+.editor .misspell {background-color: yellow}
+
+
+.editor .pb {
+  border-top: 1px dashed #C0C0C0; 
+  border-bottom: 1px dashed #C0C0C0
+}
+.editor .writely-comment {
+  font-size: 9pt; 
+  line-height: 1.4; 
+  padding: 1px; 
+  border: 1px dashed #C0C0C0
+}
+/* end editor CSS */
+</style>
+
+
+<base target="_top">
+
+</head>
+
+<body
+    
+    revision="dhq3cwb9_4f56j9zd5:90">
+
+    
+    
+<h1 id=t5nw>
+  <br id=nb:d>
+</h1>
+<h1 id=t5nw>
+  Topics in Artificial Intelligence (Learning Theory) - Spring 2008<br id=arhu>
+</h1>
+<br id=pvk4>
+<hr id=aodl style="WIDTH:100%; HEIGHT:2px"><br id=v6jk>
+Course Number: CMSC 35900 (Section 1)<br id=z1ig>
+Day/Times: MW 2:40-4:00pm (starting April 7)<br id=k106>
+Location: TTI-C Conference Room 230<br id=nerk>
+Instructors: Sham Kakade (sham@X) and Ambuj Tewari (tewari@X) [ X = tti-c.org ]<br id=gp2y>
+<br id=ouex>
+<div id=s86.>
+</div>
+<i id=vqb0>Note: Time and location differ from what is listed in the U of C
+catalog</i>
+<h2 id=etfq>
+  Lecture Notes
+</h2>
+<div id=hz8:>
+</div>
+<br id=t1_1>
+<i id=vqb0><br id=jmfv>
+</i>
+<div id=dtru>
+  <table border=0 bordercolor=#ffffff cellpadding=3 cellspacing=0 id=i19m width=100%>
+    <tbody id=mwcg>
+    <tr id=dmuk>
+      <td id=e8h7 style=TEXT-ALIGN:center width=33%>
+        <span id=aa9m><b id=z2r8>Lecture</b></span><br id=lrn7>
+      </td>
+      <td id=pytm style=TEXT-ALIGN:center width=33%>
+        <span id=nc7n><b id=fiin>Date</b></span><br id=euzh>
+      </td>
+      <td id=sir3 style=TEXT-ALIGN:center width=33%>
+        <span id=d4o0><b id=f33y>Topics Covered</b></span><br id=xl97>
+      </td>
+    </tr>
+    <tr id=muh7>
+      <td id=vmb0 style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture1.pdf id=r0lk title="Lecture 1">Lecture&nbsp;
+        1</a><br id=b8gl>
+      </td>
+      <td id=o3yb style=TEXT-ALIGN:center width=33%>
+        April&nbsp; 1<br id=exra>
+      </td>
+      <td id=jjze width=33%>
+        Mistake bound model, Halving algorithm, Linear classifiers and margin<br id=v2nk>
+      </td>
+    </tr>
+    <tr id=v5o3>
+      <td id=hzfz style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture2.pdf id=n20q title="Lecture 2">Lecture&nbsp;
+        2</a><br id=viz3>
+      </td>
+      <td id=ww8q style=TEXT-ALIGN:center width=33%>
+        April&nbsp; 3<br id=omiw>
+      </td>
+      <td id=i8bp width=33%>
+        Perceptron algorithm, Lower bound for L2-margin, Winnow<br id=lf_3>
+      </td>
+    </tr>
+    <tr id=mx9l>
+      <td id=epc3 style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture3.pdf id=f7rt title="Lecture 3">Lecture&nbsp;
+        3</a><br id=ooc5>
+      </td>
+      <td id=s1.8 style=TEXT-ALIGN:center width=33%>
+        April&nbsp; 7<br id=ajc4>
+      </td>
+      <td id=e5j: width=33%>
+        Winnow (contd.), Online Convex Programming, Online Gradient Descent<br id=z8.1>
+      </td>
+    </tr>
+    <tr id=tq4t>
+      <td id=fde3 style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture4.pdf id=f7rt title="Lecture 4">Lecture&nbsp;
+        4</a>
+      </td>
+      <td id=c724 style=TEXT-ALIGN:center width=33%>
+        April&nbsp; 9<br id=vbg5>
+      </td>
+      <td id=q0lk width=33%>
+        Exponentiated Gradient Descent, Applications of Online Convex
+        Programming<br id=i785>
+      </td>
+    </tr>
+    <tr id=fz5a>
+      <td id=m.gu style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture5.pdf id=f7rt title="Lecture 5">Lecture&nbsp;
+        5</a>
+      </td>
+      <td id=mcir style=TEXT-ALIGN:center width=33%>
+        April 14
+      </td>
+      <td id=l-mh width=33%>
+        Proof of von Neumann's Minmax Theorem, Weak and Strong Learning,
+        Boosting
+      </td>
+    </tr>
+    <tr id=m6x2>
+      <td id=sd4u style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture6.pdf id=f7rt title="Lecture 6">Lecture&nbsp;
+        6</a>
+      </td>
+      <td id=ywzy style=TEXT-ALIGN:center width=33%>
+        April 16<br id=cyeh>
+      </td>
+      <td id=r-zb width=33%>
+        AdaBoost, L1 Margins and Weak Learning<br id=y0-u>
+      </td>
+    </tr>
+    <tr id=jvcp>
+      <td id=g48v style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture7.pdf id=f7rt title="Lecture 7">Lecture&nbsp;
+        7</a>
+      </td>
+      <td id=xefo style=TEXT-ALIGN:center width=33%>
+        April 21<br id=ek6n>
+      </td>
+      <td id=mqmu width=33%>
+        Probabilistic Setup, Loss functions, Empirical Risk Minimization (ERM)<br id=jm_9>
+      </td>
+    </tr>
+    <tr id=f88q>
+      <td id=excz style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture8.pdf id=f7rt title="Lecture 8">Lecture&nbsp;
+        8</a>
+      </td>
+      <td id=orc5 style=TEXT-ALIGN:center width=33%>
+        April 23<br id=t640>
+      </td>
+      <td id=hs1o width=33%>
+        Concentration, ERM, Compression Bounds<br id=rhy7>
+      </td>
+    </tr>
+    <tr id=g28q0>
+      <td id=g28q1 style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture9.pdf id=f7rt title="Lecture 9">Lecture&nbsp;
+        9</a>
+      </td>
+      <td id=g28q2 style=TEXT-ALIGN:center width=33%>
+        April 28<br id=g28q3>
+      </td>
+      <td id=g28q4 width=33%>
+        Compression Bounds (contd.), Rademacher averages<br id=g28q5>
+      </td>
+    </tr>
+    <tr id=ckfg0>
+      <td id=ckfg1 style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture10.pdf id=f7rt title="Lecture 10">Lecture
+        10</a>
+      </td>
+      <td id=ckfg2 style=TEXT-ALIGN:center width=33%>
+        April 30<br id=ckfg3>
+      </td>
+      <td id=ckfg4 width=33%>
+        Massart's Finite Class Lemma, Growth Function<br id=ckfg5>
+      </td>
+    </tr>
+    <tr id=jk4g0>
+      <td id=jk4g1 style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture11.pdf id=f7rt title="Lecture 11">Lecture
+        11</a>
+      </td>
+      <td id=jk4g2 style=TEXT-ALIGN:center width=33%>
+        May&nbsp; 5<br id=jk4g3>
+      </td>
+      <td id=jk4g4 width=33%>
+        VC Dimension, Sauer's Lemma<br id=jk4g5>
+      </td>
+    </tr>
+    <tr id=shbl0>
+      <td id=shbl1 style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture12.pdf id=f7rt title="Lecture 12">Lecture
+        12</a>
+      </td>
+      <td id=shbl2 style=TEXT-ALIGN:center width=33%>
+        May&nbsp; 7<br id=shbl3>
+      </td>
+      <td id=shbl4 width=33%>
+        VC Dimension of Multi-layer Neural Networks, Range Queries<br id=shbl5>
+      </td>
+    </tr>
+    <tr id=g:ru0>
+      <td id=g:ru1 style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture13.pdf id=f7rt title="Lecture 13">Lecture
+        13</a>
+      </td>
+      <td id=g:ru2 style=TEXT-ALIGN:center width=33%>
+        May 12<br id=g:ru3>
+      </td>
+      <td id=g:ru4 width=33%>
+        Online to Batch Conversions<br id=g:ru5>
+      </td>
+    </tr>
+    <tr id=ryjk>
+      <td id=ryjk0 style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture13a.pdf id=f7rt title="Lecture 13a">Lecture
+        13a</a>
+      </td>
+      <td id=ryjk1 style=TEXT-ALIGN:center width=33%>
+        <i id=kc4->Supplementary Notes</i><br id=ryjk2>
+      </td>
+      <td id=ryjk3 width=33%>
+        (Exponentiated) Stochastic Gradient Descent for L1 Constrained Problems<br id=kc4-0>
+      </td>
+    </tr>
+    <tr id=p4-80>
+      <td id=p4-81 style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture14.pdf id=f7rt title="Lecture 14">Lecture
+        14</a>
+      </td>
+      <td id=p4-82 style=TEXT-ALIGN:center width=33%>
+        May 14<br id=p4-83>
+      </td>
+      <td id=p4-84 width=33%>
+        Covering Numbers and Rademacher Averages<br id=p4-85>
+      </td>
+    </tr>
+    <tr id=uu9s0>
+      <td id=uu9s1 style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture15.pdf id=f7rt title="Lecture 15">Lecture
+        15</a>
+      </td>
+      <td id=uu9s2 style=TEXT-ALIGN:center width=33%>
+        May 19<br id=uu9s3>
+      </td>
+      <td id=uu9s4 width=33%>
+        Dudley's Theorem, Pseudodimension, Fat Shattering Dimension, Packing
+        Numbers<br id=uu9s5>
+      </td>
+    </tr>
+    <tr id=keau0>
+      <td id=keau1 style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture16.pdf id=f7rt title="Lecture 16">Lecture
+        16</a>
+      </td>
+      <td id=keau2 style=TEXT-ALIGN:center width=33%>
+        May 21<br id=keau3>
+      </td>
+      <td id=keau4 width=33%>
+        Fat Shattering Dimension and Covering Numbers<br id=keau5>
+      </td>
+    </tr>
+    <tr id=gvvs0>
+      <td id=gvvs1 style=TEXT-ALIGN:center width=33%>
+        <a href=http://www.tti-c.org/tewari/lectures/lecture17.pdf id=cys0 title="Lecture 17">Lecture
+        17</a><br id=gvvs2>
+      </td>
+      <td id=gvvs3 style=TEXT-ALIGN:center width=33%>
+        May 26<br id=gvvs4>
+      </td>
+      <td id=gvvs5 width=33%>
+        Rademacher Composition and Linear Prediction<br id=gvvs6>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<br id=klnf>
+<br id=loun>
+<br id=uxtu>
+<h2 id=fjc9>
+  Homeworks
+</h2>
+<ul id=e1ow>
+  <li id=kmkr>
+    <a href=http://www.tti-c.org/tewari/homeworks/hw1.pdf id=tb01 title="Homework 1">Homework
+    1</a> (<span id=peko><i id=cs54>posted</i></span> April 11;
+    <span id=bua3><i id=g3ao>updated</i></span> April 21; <i id=u0s1>due
+    </i>April 22)
+  </li>
+  <li id=kmkr>
+    <a href=http://www.tti-c.org/tewari/homeworks/hw2.pdf id=tb01 title="Homework 2">Homework
+    2</a> (<span id=peko><i id=cs54>posted</i></span> May 12; <i id=m.if0>due
+    </i>May 21)
+  </li>
+  <li id=kmkr>
+    <a href=http://www.tti-c.org/tewari/homeworks/hw3.pdf id=tb01 title="Homework 3">Homework
+    3</a> (<span id=peko><i id=cs54>posted</i></span> June 9; <i id=m.if0>due
+    </i>June 15)
+  </li>
+</ul>
+<br id=clk2>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11903002-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
