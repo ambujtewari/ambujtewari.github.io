@@ -1,0 +1,216 @@
+<html>
+<title>
+Stochastic Coordinate Descent (SCD)
+</title>
+<head>
+</head>
+<body>
+
+<h2> Overview </h2>
+
+<p>
+SCD is a C++ implementation of (a variant of) the stochastic coordinate descent algorithm proposed in
+
+<ul>
+<li>
+	Shai Shalev-Shwartz and Ambuj Tewari, <i> <a href="http://doi.acm.org/10.1145/1553374.1553493">Stochastic methods for l<sub>1</sub> regularized loss minimization.</a> </i>
+	Proceedings of the 26th International Conference on Machine Learning, pages 929-936, 2009.
+</li>
+</ul>
+</p>
+
+<p>
+It can be used for <i>l<sub>1</sub></i>-regularized loss minimization for both classification and regression problems. This means that it
+(approximately) solves the following minimization problem: 
+</p>
+
+<p>
+min<sub>w</sub> &nbsp;
+(1/m) &#8721;<sub><var>i</var>=1, &#8230; , <var>m</var></sub> L(w<sup>T</sup> x<sub><var>i</var></sub>, y<sub><var>i</var></sub>) + &lambda;|w|<sub>1</sub>
+</p>
+
+<p>
+Currently supported loss functions are the logistic loss [L(a,b) = log(1+exp(-ab))] and the squared loss [L(a,b) = (a-b)<sup>2</sup>]. The x<sub><var>i</var></sub>'s are <i>example vectors</i> with <i>d</i> coordinates x<sub><var>i</var>,1</sub>, &#8230;  x<sub><var>i</var>,d</sub>. The y<sub><var>i</var></sub>'s are <i>labels</i> that are either &plusmn;1 (classification) or arbitrary floats (regression). The logistic loss only makes sense in a classification context but the squared loss can be used in either. &lambda; is the <i>regularization parameter</i>. SCD is designed to run fast even for large values of <var>m</var> and <var>d</var> and can exploit the sparsity in the examples (i.e. if a lot of coordinates in the example vectors are zero).
+</p>
+
+<h2> Source Code </h2>
+
+<p>
+The source code is released under the GNU General Public License. The authors are not responsible for any consequences arising out of the use of the code, so please use it at your own risk. We do, however, appreciate receiving bug reports from you. Please direct them to <a href="../..">Ambuj Tewari</a> via email.
+</p>
+
+<p>
+If you use SCD in your research, please cite it as
+<ul>
+<li>
+        Shai Shalev-Shwartz and Ambuj Tewari, <i> <a href="http://doi.acm.org/10.1145/1553374.1553493"> Stochastic methods for l<sub>1</sub> regularized loss minimization.</a> </i>
+        Proceedings of the 26th International Conference on Machine Learning, pages 929-936, 2009.
+</li>
+</ul>
+The code was developed under Linux using g++ (GCC) version 3.4.6. Current version of SCD is 2.1. The source code for the current version is available here:
+</p>
+<p>
+<ul>
+<li>
+<a href="./scd.tar.gz">
+scd.tar.gz
+</a>
+</li>
+</ul>
+</p>
+
+<h2> Installation </h2>
+
+<p>
+After downloading the file <tt>scd.tar.gz</tt> into a suitable directory, unpack it by typing
+</p>
+
+<p>
+<pre> tar zxvf scd.tar.gz </pre>
+</p>
+
+<p>
+This will create a directory called <tt>SCD</tt> with the following 9 files in it:
+
+<ul>
+<li><tt> cmd_line.cc </tt></li>
+<li><tt> cmd_line.h </tt></li>
+<li><tt> cmd_option.h </tt></li>
+<li><tt> Losses.h </tt></li>
+<li><tt> gpl.txt </tt></li>
+<li><tt> Makefile </tt></li>
+<li><tt> scd.cc </tt></li>
+<li><tt> test_examples </tt></li>
+<li><tt> test_labels </tt></li>
+</ul>
+</p>
+
+<p>
+Now, type
+</p>
+
+<p>
+<pre> make </pre>
+</p>
+
+<p>
+This will create an executable named <tt>scd</tt> (plus a couple of object files).
+</p>
+
+<h2> Usage </h2>
+
+After installing, simply type
+
+<p>
+<pre> ./scd
+</pre>
+</p>
+
+and the following usage message is displayed:
+
+<pre>
+
+USAGE: ./scd [options] &lt;data-file&gt; &lt;label-file&gt;
+
+L1 regularized loss minimization using stochastic coordinate descent
+
+OPTIONS:
+ -lambda regularization parameter (default = 0.001)
+ -loss 0 for logistic, 2 for squared (default = 0)
+ -iters number of iterations (default = 1000)
+ -printout after how many iterations to print w (default 1000)
+
+</pre>
+
+All 4 command line options are optional and receive their default values indicated above if they are not supplied by the user. The options <tt>lambda, loss</tt> and <tt>iters</tt> set the regularization parameter, the loss function to use, and the number of iterations for which the stochastic coordinate descent algorithm will be run, respectively. The <tt>printout</tt> option selects the interval after which a summary of current state of the optimization will be printed on the standard output. The following information about the current weight vector w is included in this summary:
+
+<ol>
+<li> time elapsed (in milliseconds)</li>
+<li> number of times the data matrix was accessed</li>
+<li> |w|<sub>1</sub>, the <var>l<sub>1</sub></var>-norm of w</li>
+<li> |w|<sub>0</sub>, the <var>l<sub>0</sub></var>-norm (no. of non-zero coordinates) of w</li>
+<li> (1/m) &#8721;<sub><var>i</var>=1, &#8230; , <var>m</var></sub> L(w<sup>T</sup> x<sub><var>i</var></sub>, y<sub><var>i</var></sub>), the average loss of w</li>
+<li> (1/m) &#8721;<sub><var>i</var>=1, &#8230; , <var>m</var></sub> L(w<sup>T</sup> x<sub><var>i</var></sub>, y<sub><var>i</var></sub>) + &lambda;|w|<sub>1</sub>, the objective function</li>
+<li> &#8721;<sub><var>i</var>=1, &#8230; , <var>m</var></sub> 1[w<sup>T</sup> x<sub><var>i</var></sub> y<sub><var>i</var></sub> &#8804; 0], the number of mistakes on the examples (ignore this field if doing regression)
+</ol>
+
+<h3> Data File Format </h3>
+
+<p>
+Conceptually, we often think of the data as a huge <var>m</var> x <var>d</var> matrix with the examples sitting as rows of this matrix. Viewed this way, <tt>scd</tt> expects its input data file to be in a <em>sparse column major</em> format as described below:
+
+<pre>
+<font color="blue">Line 1:</font> m d
+<font color="blue">Line 2:</font> i1 v1 i2 v2 ...
+&#8942;
+<font color="blue">Line <var>d</var>+1:</font> i1 v1 i2 v2 ...
+</pre>
+</p>
+
+<p>
+The first line tells <tt>scd</tt> that there are <var>m</var> example each with <var>d</var> features or coordinates.
+The second line gives the values for feature 1 for all those examples where feature 1 is non-zero. The pair <tt>i1 v1</tt> means that example (i1+1) has value v1.
+Note that, following C/C++ convention, <font color="red">the indices <tt>i1, i2, ...</tt> start from zero</font>. For example, if feature 1 is non-zero only for examples 1, 3 and 10 and has values 0.2, 0.9 and -0.7 for these, then line 2 would read:
+
+<pre>
+0 0.2 2 0.9 9 -0.7
+</pre>
+
+The example indices need not appear in increasing order. It is assumed that <font color="red">the values <tt>v1, v2, ...</tt> lie
+in the interval [-1,1]</font>. You might have to do some preprocessing of your data to ensure this.
+</p>
+
+<p>Line 3 then gives values for feature 2, Line 4 for feature 3, and so on till Line <var>d</var>+1.
+
+<h3> Label File Format </h3>
+
+The label file format is pretty simple: Line <var>j</var> gives the label of example <var>j</var>.
+So, there should be a total of <var>m</var> lines in the label file and each line should have a single number
+(&plusmn;1 in the classification case, any floating point number in the regression case).
+
+<h3> Test Run </h3>
+
+To make sure everything runs okay on your machine, use the files <tt>test_examples</tt> and <tt>test_labels</tt> to do a test run. The file <tt>test_examples</tt> encodes the following 3 x 5 data matrix (3 examples, 5 features):
+<pre>
+0    0    0    0.2  0.2
+0    0    0.3  0   -0.5
+0.4  0.6  0    0    0
+</pre>
+The labels for the 3 examples are 1,1 and -1 respectively.
+Now, run <tt>scd</tt> with logistic loss and the default value (0.001) of the regularization parameter by typing
+
+<pre> ./scd -iters 50000 -printout 5000 test_examples test_labels </pre>
+
+This runs <tt>scd</tt> for 50,000 iterations printing a summary line every 5,000 iterations. You should see an output that looks something like
+
+<pre>
+0 11972 41.2552 5 0.0164818 0.057737 0
+10 24054 43.7355 5 0.012187 0.0559226 0
+10 36020 44.4665 4 0.0109725 0.055439 0
+20 47932 44.6602 3 0.0104728 0.055133 0
+20 59888 44.9534 3 0.0101683 0.0551217 0
+30 71858 45.0208 3 0.0101003 0.0551212 0
+30 83900 45.0446 3 0.0100765 0.0551211 0
+40 95908 45.0546 3 0.0100664 0.055121 0
+50 107974 45.0588 3 0.0100623 0.055121 0
+50 119818 45.0607 3 0.0100603 0.055121 0
+</pre>
+
+The actual output might be slightly different due to the randomness in the algorithm but the objective function should converge to <tt>0.05512</tt> for this toy example.
+
+<h3> Acknowledgments </h3>
+
+Ambuj Tewari would like to thank his wife Shilpa Shukla for help in debugging the code.
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11903002-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>
