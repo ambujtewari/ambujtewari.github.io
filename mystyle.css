@@ -1,8 +1,180 @@
-body {
-    background-color: FloralWhite;
-    font-family: Georgia, serif;
+:root {
+    --bg: #fffdf7;
+    --text: #1f2933;
+    --muted: #52606d;
+    --border: #d9e2ec;
+    --link: #0b5fff;
+    --link-hover: #0844b4;
+    --heading: #102a43;
 }
 
-li, p {
-    font-family: Georgia, serif;
+* {
+    box-sizing: border-box;
+}
+
+.site-page {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.06rem;
+    line-height: 1.7;
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 1.25rem 1rem 2.5rem;
+}
+
+.site-page .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    align-items: center;
+    margin: 0 0 1.4rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.site-page .site-nav a {
+    display: inline-block;
+    color: var(--muted);
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 0.2rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.site-page .site-nav a:hover,
+.site-page .site-nav a:focus-visible {
+    color: var(--link-hover);
+    border-bottom-color: var(--link-hover);
+    outline: none;
+}
+
+.site-page p,
+.site-page ul,
+.site-page ol,
+.site-page table,
+.site-page pre {
+    margin: 0 0 1.1rem;
+}
+
+.site-page li + li {
+    margin-top: 0.34rem;
+}
+
+.site-page h1,
+.site-page h2,
+.site-page h3 {
+    color: var(--heading);
+    line-height: 1.25;
+    margin: 1.9rem 0 0.7rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.site-page h1 {
+    font-size: clamp(1.6rem, 4.4vw, 2rem);
+}
+
+.site-page h2 {
+    font-size: clamp(1.35rem, 3.6vw, 1.6rem);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+}
+
+.site-page a {
+    color: var(--link);
+    text-decoration-color: rgba(11, 95, 255, 0.45);
+    text-underline-offset: 0.16em;
+}
+
+.site-page a:hover,
+.site-page a:focus-visible {
+    color: var(--link-hover);
+    text-decoration-thickness: 2px;
+}
+
+.site-page img,
+.site-page iframe,
+.site-page embed,
+.site-page object,
+.site-page video,
+.site-page table {
+    max-width: 100%;
+    height: auto;
+}
+
+.site-page .profile-photo {
+    float: left;
+    margin: 0.2rem 1rem 0.6rem 0;
+    border-radius: 8px;
+}
+
+.site-page hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 1.5rem 0;
+}
+
+.site-page table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.site-page td {
+    padding: 0.35rem 0.25rem;
+    vertical-align: top;
+}
+
+.site-page .bibtexnumber {
+    white-space: nowrap;
+    padding-right: 0.75rem;
+    color: var(--muted);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.92rem;
+}
+
+.site-page .bibtexitem {
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid #f0f3f7;
+}
+
+.site-page pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.8rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+    .site-page {
+        font-size: 1rem;
+        line-height: 1.62;
+        padding: 0.85rem 0.85rem 2rem;
+    }
+
+    .site-page .profile-photo {
+        float: none;
+        display: block;
+        margin: 0 auto 0.85rem;
+    }
+
+    .site-page td {
+        display: block;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .site-page .bibtexnumber {
+        padding-bottom: 0;
+    }
+
+    .site-page .bibtexitem {
+        padding-top: 0.15rem;
+    }
 }
